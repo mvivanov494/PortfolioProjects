@@ -222,8 +222,8 @@ GROUP BY location
 ORDER BY HighestDeathCount DESC;
 
 -- Breaking things down by continent
--- Showing the continents with the highest death counts per population
 
+-- Showing the continents with the highest death counts per population
 SELECT continent, MAX(total_deaths) AS HighestDeathCount
 FROM coviddeathstable
 WHERE location IS NULL
@@ -266,7 +266,7 @@ JOIN covidvaccinationstable vac
 WHERE dea.location IS NOT NULL AND dea.location <> 'International' AND dea.location <> 'World'
 -- ORDER BY 2,3
 )
-SELECT *, (RollingCountofVaccinations/population)*100
+SELECT *, (RollingCountofVaccinations/population)*100 AS RollingPercentofVaccinations
 FROM PopvsVac;
 
 -- TEMP TABLE
@@ -294,7 +294,7 @@ JOIN covidvaccinationstable vac
 -- WHERE dea.location IS NOT NULL AND dea.location <> 'International' AND dea.location <> 'World';
 -- ORDER BY 2,3;
 
-SELECT *, (RollingCountofVaccinations/population)*100
+SELECT *, (RollingCountofVaccinations/population)*100 AS RollingPercentofVaccinations
 FROM percentpopulationvaccinated;
 
 -- Creating view(s) to store data for later visualizations
@@ -309,3 +309,27 @@ JOIN covidvaccinationstable vac
     AND dea.curr_date = vac.curr_date
 WHERE dea.location IS NOT NULL AND dea.location <> 'International' AND dea.location <> 'World';
 -- ORDER BY 2,3;
+
+CREATE VIEW highestinfectionrate AS
+-- Looking at countries with highest infection rate compared to population
+SELECT location, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS HighestPercentInfected
+FROM coviddeathstable
+WHERE location IS NOT NULL
+GROUP BY location, population
+ORDER BY HighestPercentInfected DESC;
+
+CREATE VIEW highestdeathcount AS
+-- Showing countries with the highest death count per population
+SELECT location, MAX(total_deaths) AS HighestDeathCount
+FROM coviddeathstable
+WHERE location IS NOT NULL
+GROUP BY location
+ORDER BY HighestDeathCount DESC;
+
+CREATE VIEW highestdeathcountbycontinent AS
+-- Showing the continents with the highest death counts per population
+SELECT continent, MAX(total_deaths) AS HighestDeathCount
+FROM coviddeathstable
+WHERE location IS NULL
+GROUP BY continent
+ORDER BY HighestDeathCount DESC;
