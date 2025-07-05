@@ -1,4 +1,13 @@
- USE coviddata;
+/*
+Covid 19 Data Exploration 
+
+Skills used: Joins, CTE's, Temp Tables, Aggregate Functions, Creating Views, Converting Data Types
+
+*/
+
+USE coviddata;
+
+-- Exploring Data that we are going to be starting with
 
 SELECT *
 FROM coviddeathstable
@@ -12,6 +21,8 @@ DESCRIBE covidvaccinationstable;
 
 DROP TABLE coviddeathstable;
 DROP TABLE covidvaccinationstable;
+
+--Table creation
 
 CREATE TABLE coviddeathstable (
 iso_code VARCHAR(100),
@@ -81,6 +92,8 @@ hospital_beds_per_thousand DOUBLE,
 life_expectancy DOUBLE,
 human_development_index DOUBLE
 );
+
+-- Loading data from provided CSV files and accounting for Null spaces with NULLIF()
 
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Data/coviddata/BASE1(Deaths)tocsv.csv' INTO TABLE coviddeathstable
 FIELDS TERMINATED BY ','
@@ -182,13 +195,13 @@ SET
   life_expectancy = NULLIF(@life_expectancy, ''),
   human_development_index = NULLIF(@human_development_index, '');
 
--- Shows likelihood of death in selected country
+-- Shows likelihood of death if you contract coronavirus in selected country
 SELECT location, curr_date, total_cases, total_deaths, (total_deaths/total_cases)*100 AS DeathPercentage
 FROM coviddeathstable WHERE location LIKE '%States%'
 AND location IS NOT NULL
 ORDER BY 1,2;
 
--- Percent infected in selected country
+-- Shows percent of population infected with coronavirus in selected country
 SELECT location, curr_date, total_cases, population, (total_cases/population)*100 AS PercentInfected
 FROM coviddeathstable WHERE location LIKE '%States%'
 AND location IS NOT NULL
@@ -209,13 +222,6 @@ GROUP BY location
 ORDER BY HighestDeathCount DESC;
 
 -- Breaking things down by continent
-
-SELECT continent, MAX(total_deaths) AS HighestDeathCount
-FROM coviddeathstable
-WHERE location IS NULL
-GROUP BY continent
-ORDER BY HighestDeathCount DESC;
-
 -- Showing the continents with the highest death counts per population
 
 SELECT continent, MAX(total_deaths) AS HighestDeathCount
@@ -233,6 +239,7 @@ WHERE location IS NOT NULL
 ORDER BY 1,2;
 
 -- Looking at total population vs vaccinations
+-- Shows percentage of population that has received at least one covid vaccine
 
 SELECT dea.continent, dea.location, dea.curr_date, dea.population, vac.new_vaccinations,
 SUM(vac.new_vaccinations) OVER (PARTITION BY dea.location ORDER BY dea.location, 
@@ -245,7 +252,7 @@ WHERE dea.location IS NOT NULL AND dea.location <> 'International' AND dea.locat
 ORDER BY 2,3;
 
 
--- USE CTE
+-- Using a CTE to perform calculation on Partion By in previous query
 
 WITH PopvsVac (continent, location, curr_date, population, new_vaccinations, RollingCountofVaccinations)
 AS (
@@ -263,6 +270,8 @@ SELECT *, (RollingCountofVaccinations/population)*100
 FROM PopvsVac;
 
 -- TEMP TABLE
+-- Using a Temp Table to perform calculation on Partition By in previous query
+
 DROP TABLE IF EXISTS percentpopulationvaccinated;
 CREATE TEMPORARY TABLE percentpopulationvaccinated
 (
@@ -288,7 +297,7 @@ JOIN covidvaccinationstable vac
 SELECT *, (RollingCountofVaccinations/population)*100
 FROM percentpopulationvaccinated;
 
--- Creating views to store data for later visualizations
+-- Creating view(s) to store data for later visualizations
 
 CREATE VIEW percentpopulationvaccinated AS
 SELECT dea.continent, dea.location, dea.curr_date, dea.population, vac.new_vaccinations,
@@ -300,6 +309,3 @@ JOIN covidvaccinationstable vac
     AND dea.curr_date = vac.curr_date
 WHERE dea.location IS NOT NULL AND dea.location <> 'International' AND dea.location <> 'World';
 -- ORDER BY 2,3;
-
-SELECT *
-FROM percentpopulationvaccinated;
