@@ -22,7 +22,7 @@ DESCRIBE covidvaccinationstable;
 DROP TABLE coviddeathstable;
 DROP TABLE covidvaccinationstable;
 
---Table creation
+-- Table creation
 
 CREATE TABLE coviddeathstable (
 iso_code VARCHAR(100),
