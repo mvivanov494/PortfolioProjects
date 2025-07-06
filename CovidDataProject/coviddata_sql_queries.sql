@@ -214,6 +214,13 @@ WHERE location IS NOT NULL
 GROUP BY location, population
 ORDER BY HighestPercentInfected DESC;
 
+-- Rolling highest infection rate
+SELECT location, population, curr_date, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS HighestPercentInfected
+FROM coviddeathstable
+WHERE location IS NOT NULL
+GROUP BY location, population, curr_date
+ORDER BY HighestPercentInfected DESC;
+
 -- Showing countries with the highest death count per population
 SELECT location, MAX(total_deaths) AS HighestDeathCount
 FROM coviddeathstable
@@ -327,9 +334,16 @@ GROUP BY location
 ORDER BY HighestDeathCount DESC;
 
 CREATE VIEW highestdeathcountbycontinent AS
--- Showing the continents with the highest death counts per population
+-- Showing the continents with the highest death counts per population 
 SELECT continent, MAX(total_deaths) AS HighestDeathCount
 FROM coviddeathstable
 WHERE location IS NULL
 GROUP BY continent
 ORDER BY HighestDeathCount DESC;
+
+CREATE VIEW worlddeathpercentage AS 
+-- World death percentage
+SELECT SUM(new_cases) AS TotalCases, SUM(new_deaths) AS TotalDeaths, SUM(new_deaths)/SUM(new_cases)*100 AS WorldDeathPercentage
+FROM coviddeathstable 
+WHERE location IS NOT NULL
+ORDER BY 1,2;
