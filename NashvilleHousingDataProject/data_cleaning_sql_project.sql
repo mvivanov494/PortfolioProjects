@@ -185,7 +185,6 @@ SELECT unique_id,
                     ) row_num
 FROM nashville_housing_data
 )
--- ORDER BY parcel_id;
 
 DELETE FROM nashville_housing_data
 WHERE unique_id IN (SELECT unique_id FROM RowNumCTE WHERE row_num > 1);
@@ -203,3 +202,174 @@ DROP COLUMN property_address;
 
 ALTER TABLE nashville_housing_data
 DROP COLUMN tax_distinct;
+
+-- Pie charts
+
+-- Looking at the percentage of houses built in each year in Nashville
+-- COUNT(*) counts all rows that match either the WHERE condition or, if GROUP BY is used, all rows within each group.
+-- The subquery COUNT(*) is not affected by the group by statement
+SELECT year_built, COUNT(*) as count, 
+COUNT(*)/(SELECT COUNT(*) FROM nashville_housing_data WHERE year_built IS NOT NULL) *100 AS percentage
+FROM nashville_housing_data
+WHERE year_built IS NOT NULL
+GROUP BY year_built
+ORDER BY percentage DESC;
+
+-- Bar charts
+
+-- Looking at the amount of homes with X amount of bedrooms
+SELECT DISTINCT(bedrooms), COUNT(bedrooms) AS count
+FROM nashville_housing_data 
+WHERE bedrooms IS NOT NULL
+GROUP BY bedrooms
+ORDER BY bedrooms;
+
+-- Looking at the amount of homes with X amount of full bathrooms
+SELECT DISTINCT(full_baths), COUNT(full_baths) AS count
+FROM nashville_housing_data
+WHERE full_baths IS NOT NULL
+GROUP BY full_baths
+ORDER BY full_baths;
+
+-- Looking at the number of land plots in X price bracket
+SELECT
+	CASE
+		WHEN land_value < 100000 THEN 'Under 100k'
+        WHEN land_value BETWEEN 100000 AND 200000 THEN '100k-200k'
+        WHEN land_value BETWEEN 200000 AND 300000 THEN '200k-300k'
+        WHEN land_value BETWEEN 300000 AND 400000 THEN '300k-400k'
+        WHEN land_value BETWEEN 400000 AND 500000 THEN '400k-500k'
+        WHEN land_value BETWEEN 500000 AND 600000 THEN '500k-600k'
+        WHEN land_value BETWEEN 600000 AND 700000 THEN '600k-700k'
+        WHEN land_value BETWEEN 700000 AND 800000 THEN '700k-800k'
+        WHEN land_value BETWEEN 800000 AND 900000 THEN '800k-900k'
+        WHEN land_value BETWEEN 1000000 AND 2000000 THEN '1M-2M'
+        WHEN land_value BETWEEN 2000000 AND 3000000 THEN '2M-3M'
+        WHEN land_value > 3000000 THEN 'Over 3M'
+        ELSE 'Missing Land Value'
+	END AS land_value_range,  Count(*) AS count,
+	CASE
+        WHEN land_value < 100000 THEN 1
+		WHEN land_value BETWEEN 100000 AND 200000 THEN 2
+		WHEN land_value BETWEEN 200000 AND 300000 THEN 3
+		WHEN land_value BETWEEN 300000 AND 400000 THEN 4
+		WHEN land_value BETWEEN 400000 AND 500000 THEN 5
+		WHEN land_value BETWEEN 500000 AND 600000 THEN 6
+		WHEN land_value BETWEEN 600000 AND 700000 THEN 7
+		WHEN land_value BETWEEN 700000 AND 800000 THEN 8
+		WHEN land_value BETWEEN 800000 AND 900000 THEN 9
+		WHEN land_value BETWEEN 1000000 AND 2000000 THEN 10
+		WHEN land_value BETWEEN 2000000 AND 3000000 THEN 11
+		WHEN land_value > 3000000 THEN 12
+		ELSE 0
+  END AS sort_order
+FROM nashville_housing_data
+WHERE land_value IS NOT NULL
+GROUP BY land_value_range, sort_order
+ORDER BY sort_order;
+
+-- Looking counts of homes in each bracket of building values
+SELECT
+  CASE
+    WHEN building_value < 100000 THEN 'Under 100k'
+    WHEN building_value BETWEEN 100000 AND 200000 THEN '100k-200k'
+    WHEN building_value BETWEEN 200000 AND 300000 THEN '200k-300k'
+    WHEN building_value BETWEEN 300000 AND 400000 THEN '300k-400k'
+    WHEN building_value BETWEEN 400000 AND 500000 THEN '400k-500k'
+    WHEN building_value BETWEEN 500000 AND 600000 THEN '500k-600k'
+    WHEN building_value BETWEEN 600000 AND 700000 THEN '600k-700k'
+    WHEN building_value BETWEEN 700000 AND 800000 THEN '700k-800k'
+    WHEN building_value BETWEEN 800000 AND 900000 THEN '800k-900k'
+    WHEN building_value BETWEEN 900000 AND 1000000 THEN '900k-1M'
+    WHEN building_value BETWEEN 1000000 AND 2000000 THEN '1M-2M'
+    WHEN building_value BETWEEN 2000000 AND 3000000 THEN '2M-3M'
+    WHEN building_value BETWEEN 3000000 AND 4000000 THEN '3M-4M'
+    WHEN building_value BETWEEN 4000000 AND 5000000 THEN '4M-5M'
+    WHEN building_value BETWEEN 5000000 AND 6000000 THEN '5M-6M'
+    WHEN building_value BETWEEN 6000000 AND 7000000 THEN '6M-7M'
+    WHEN building_value BETWEEN 7000000 AND 8000000 THEN '7M-8M'
+    WHEN building_value BETWEEN 8000000 AND 9000000 THEN '8M-9M'
+    WHEN building_value BETWEEN 9000000 AND 10000000 THEN '9M-10M'
+    WHEN building_value BETWEEN 10000000 AND 11000000 THEN '10M-11M'
+    WHEN building_value BETWEEN 11000000 AND 12000000 THEN '11M-12M'
+    WHEN building_value > 12000000 THEN 'Over 12M'
+    ELSE 'Missing Building Value'
+  END AS building_value_range,
+
+  COUNT(*) AS count,
+
+  CASE
+    WHEN building_value < 100000 THEN 1
+    WHEN building_value BETWEEN 100000 AND 200000 THEN 2
+    WHEN building_value BETWEEN 200000 AND 300000 THEN 3
+    WHEN building_value BETWEEN 300000 AND 400000 THEN 4
+    WHEN building_value BETWEEN 400000 AND 500000 THEN 5
+    WHEN building_value BETWEEN 500000 AND 600000 THEN 6
+    WHEN building_value BETWEEN 600000 AND 700000 THEN 7
+    WHEN building_value BETWEEN 700000 AND 800000 THEN 8
+    WHEN building_value BETWEEN 800000 AND 900000 THEN 9
+    WHEN building_value BETWEEN 900000 AND 1000000 THEN 10
+    WHEN building_value BETWEEN 1000000 AND 2000000 THEN 11
+    WHEN building_value BETWEEN 2000000 AND 3000000 THEN 12
+    WHEN building_value BETWEEN 3000000 AND 4000000 THEN 13
+    WHEN building_value BETWEEN 4000000 AND 5000000 THEN 14
+    WHEN building_value BETWEEN 5000000 AND 6000000 THEN 15
+    WHEN building_value BETWEEN 6000000 AND 7000000 THEN 16
+    WHEN building_value BETWEEN 7000000 AND 8000000 THEN 17
+    WHEN building_value BETWEEN 8000000 AND 9000000 THEN 18
+    WHEN building_value BETWEEN 9000000 AND 10000000 THEN 19
+    WHEN building_value BETWEEN 10000000 AND 11000000 THEN 20
+    WHEN building_value BETWEEN 11000000 AND 12000000 THEN 21
+    WHEN building_value > 12000000 THEN 22
+    ELSE 0
+  END AS sort_order
+FROM nashville_housing_data
+WHERE building_value IS NOT NULL
+GROUP BY building_value_range, sort_order
+ORDER BY sort_order;
+
+
+
+-- Standalone values
+
+-- The biggest owned plot of land in Nashville
+SELECT MAX(acreage) FROM nashville_housing_data;
+SELECT address_trimmed, city, land_use, acreage
+FROM nashville_housing_data
+WHERE acreage LIKE '160.06';
+
+-- Addresses of some of the lowest value buildings in Nashville
+SELECT address_trimmed, city, MIN(building_value)
+FROM nashville_housing_data
+WHERE building_value IS NOT NULL
+GROUP BY address_trimmed, city
+ORDER BY 3;
+
+-- Showing the addresses of some of the most expensive buildings in Nashville
+SELECT address_trimmed, building_value
+FROM nashville_housing_data
+WHERE building_value IS NOT NULL
+ORDER BY building_value DESC;
+
+-- Address of the most expensive building in Nashville (A Catholic Church)
+SELECT address_trimmed, city, land_use, building_value
+FROM nashville_housing_data
+WHERE building_value LIKE 12971800;
+
+-- Address of the cheapest building in Nashville (Home off the market)
+Select address_trimmed, city, land_use, building_value
+FROM nashville_housing_data
+WHERE building_value LIKE '1400';
+
+
+SELECT * FROM nashville_housing_data;
+
+
+
+
+
+
+
+
+
+
