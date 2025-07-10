@@ -1,9 +1,9 @@
-Tableau Dashboard Link: https://public.tableau.com/app/profile/mikhail.ivanov8682/viz/NashvilleHousingDataDashboard_17521083222670/Dashboard1
+**Tableau Dashboard Link: **https://public.tableau.com/app/profile/mikhail.ivanov8682/viz/NashvilleHousingDataDashboard_17521083222670/Dashboard1
 
-Nashville Housing Data Cleaning & Visualization Project
+**Nashville Housing Data Cleaning & Visualization Project**
 This project showcases a complete end-to-end data cleaning, transformation, analysis, and visualization workflow using SQL, Excel, and Tableau, centered around real estate property data from Nashville, Tennessee. It highlights key data analysis skills including ETL processes, data quality management, and dashboard development.
 
-Tools Used
+**Tools Used**
 MySQL – For importing, cleaning, and analyzing structured data using advanced SQL
 
 Excel – For initial cleaning, formatting, and handling nulls and duplicates
@@ -12,7 +12,7 @@ Tableau – For interactive data visualization and dashboard design
 
 Git/GitHub – For version control and project documentation
 
-Project Overview
+**Project Overview**
 Imported a raw dataset of 56,000+ rows using LOAD DATA INFILE in MySQL
 
 Standardized and split full address fields into street, city, and state using string functions like SUBSTRING_INDEX, LEFT, and LOCATE
@@ -31,7 +31,7 @@ Deleted irrelevant columns after transformation to finalize the dataset
 
 Built a Tableau dashboard to visualize metrics such as construction year distribution, bedroom counts, building value tiers, land usage, and notable high/low-value properties
 
-Sample SQL Work
+**Sample SQL Work**
 sql
 Copy
 Edit
@@ -47,7 +47,7 @@ DELETE FROM nashville_housing_data
 WHERE unique_id IN (
   SELECT unique_id FROM RowNumCTE WHERE row_num > 1
 );
-Key Concepts Demonstrated
+**Key Concepts Demonstrated**
 Data wrangling with SQL (CTEs, joins, aggregates, string manipulation)
 
 Data pipeline setup from raw CSV to structured, queryable tables
@@ -60,9 +60,5 @@ Excel techniques for NULL handling and formatting (Ctrl+H, filters, keyboard sho
 
 Visual analytics and interactive dashboard publishing in Tableau
 
-Tableau Dashboard
-Explore the finalized visualizations highlighting Nashville housing trends and outliers:
-[Insert your Tableau Public dashboard link here]
-
-Outcome
+**Outcome**
 This project simulates a real-world data cleaning and reporting workflow that a business analyst or data analyst would perform to prepare property data for stakeholder analysis, reporting, or integration into BI tools.
