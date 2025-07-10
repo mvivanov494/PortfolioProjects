@@ -32,22 +32,6 @@ Deleted irrelevant columns after transformation to finalize the dataset
 
 Built a Tableau dashboard to visualize metrics such as construction year distribution, bedroom counts, building value tiers, land usage, and notable high/low-value properties
 
-**Sample SQL Work**
-sql
-Copy
-Edit
-WITH RowNumCTE AS (
-  SELECT unique_id,
-         ROW_NUMBER() OVER (
-           PARTITION BY parcel_id, property_address, sale_price, sale_date, legal_reference
-           ORDER BY unique_id
-         ) AS row_num
-  FROM nashville_housing_data
-)
-DELETE FROM nashville_housing_data
-WHERE unique_id IN (
-  SELECT unique_id FROM RowNumCTE WHERE row_num > 1
-);
 **Key Concepts Demonstrated**
 Data wrangling with SQL (CTEs, joins, aggregates, string manipulation)
 
