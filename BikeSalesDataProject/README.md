@@ -1,6 +1,7 @@
 Data source: https://www.kaggle.com/code/heeraldedhia/exploratory-data-analysis-in-r/input
 
 **Excel Bike Purchase Data Analysis Project**
+
 🧠 **Project Objective**
 The goal of this project was to analyze customer data to uncover trends related to bike purchases. The dataset includes demographic, socioeconomic, and lifestyle information, allowing us to explore which groups are more likely to purchase bikes.
 
