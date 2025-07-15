@@ -32,33 +32,15 @@ Removed trailing spaces and corrected case formatting (using =TRIM() function)
 
 **Pivot Tables & Charts:**
 
-Created interactive pivot tables to break down bike purchases by:
+Created interactive pivot tables to break down bike purchases by: Marital Status, Income Range, Commute, Distance, Education & Occupation, Region
 
-Marital Status
-
-Income Range
-
-Commute Distance
-
-Education & Occupation
-
-Region
-
-Visualized findings using bar charts, pie charts, and stacked columns
+Visualized findings using bar charts, line charts, and stacked columns
 
 **Dashboard:**
 
 Compiled key visualizations into a single Excel dashboard
 
-Added Slicers for:
-
-Region
-
-Education
-
-Marital Status
-
-Number of Cars Owned
+Added Slicers for: Region, Education, Marital Status, Number of Cars Owned
 
 Slicers allow for dynamic filtering, making insights customizable and interactive
 
