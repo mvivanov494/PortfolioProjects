@@ -47,9 +47,13 @@ Slicers allow for dynamic filtering, making insights customizable and interactiv
 🔍 **Key Insights Uncovered**
 
 Households that have purchased a bike and have 0 cars have a larger portion of their bike purchases for either 0-1 mile commutes or 2-5 mile commutes
+
 Households that have purchased a bike and have 1 cars have a larger portion of their bike purchases for either 0-1 mile commutes or 2-5 mile commutes
+
 Households that have purchased a bike and have 2 cars have a larger portion of their bike purchases for either 2-5 mile commutes or 5-10 mile commutes
+
 Households that have purchased a bike and have 3 cars have a larger proportion of their bike purchases for either 0-1 mile commutes or 10+ mile commutes
+
 Households that have purchased a bike and have 4 cars have a larger portion of their bike purchases for either 5-10 mile commutes or 10+ mile commutes
 
 These previous distance findings in combination with the trend that households that purchased a bike and have more cars have a higher average income, we can conclude that these households
