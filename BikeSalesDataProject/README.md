@@ -64,6 +64,7 @@ Households that had 0-1 cars were more likely to buy a bike than households with
 The Pacific region showed much higher purchase rates compared to the others.
 
 ✅ **Final Deliverables**
+
 Cleaned Excel workbook with raw data and formulas
 
 Pivot tables with dynamic summaries
