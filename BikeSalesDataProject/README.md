@@ -45,6 +45,7 @@ Added Slicers for: Region, Education, Marital Status, Number of Cars Owned
 Slicers allow for dynamic filtering, making insights customizable and interactive
 
 🔍 **Key Insights Uncovered**
+
 Households that have purchased a bike and have 0 cars have a larger portion of their bike purchases for either 0-1 mile commutes or 2-5 mile commutes
 Households that have purchased a bike and have 1 cars have a larger portion of their bike purchases for either 0-1 mile commutes or 2-5 mile commutes
 Households that have purchased a bike and have 2 cars have a larger portion of their bike purchases for either 2-5 mile commutes or 5-10 mile commutes
