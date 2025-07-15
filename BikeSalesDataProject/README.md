@@ -25,10 +25,7 @@ Replaced ambiguous abbreviations:
 Ensured consistency in values across fields like “Gender”, “Region”, etc.
 
 **Data Cleaning:**
-
-Fixed date columns (not shown in sample but applied if present)
-
-Standardized currency format (e.g., Income to US dollar format: $XX,XXX)
+Standardized currency and date formats (e.g., Income to US dollar format: $XX,XXX)
 
 Removed trailing spaces and corrected case formatting (using =TRIM() function)
 
