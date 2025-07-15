@@ -1,5 +1,5 @@
 **Tableau Dashboard Link:**
-https://public.tableau.com/app/profile/mikhail.ivanov8682/viz/NashvilleHousingDataDashboard_17521083222670/Dashboard1
+https://public.tableau.com/app/profile/mikhail.ivanov8682/viz/NashvilleHousingDataDashboard_17525406633940/Dashboard1
 
 **Nashville Housing Data Cleaning & Visualization Project**
 This project showcases a complete end-to-end data cleaning, transformation, analysis, and visualization workflow using SQL, Excel, and Tableau, centered around real estate property data from Nashville, Tennessee. It highlights key data analysis skills including ETL processes, data quality management, and dashboard development.
