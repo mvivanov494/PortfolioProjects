@@ -48,7 +48,7 @@ Monthly rental profitability seasonality
 Security deposit and cleaning fee averages
 
 📈 **Key Findings**
-**Average Guests (Accommodates): 1.68
+Average Guests (Accommodates): 1.68
 
 Average Security Deposit: $287.09
 
@@ -58,7 +58,7 @@ Most Expensive ZIP Codes: 98134, 98119, 98101
 
 Peak Rental Season: Late May through the winter holidays
 
-Most Common Listing: Individual bedrooms (not entire properties) dominate due to high demand and affordability in the Seattle market**
+Most Common Listing: Individual bedrooms (not entire properties) dominate due to high demand and affordability in the Seattle market
 
 💡 **Use Case:**
 For Prospective Airbnb Hosts in Seattle
