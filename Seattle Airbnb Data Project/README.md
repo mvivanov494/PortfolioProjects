@@ -61,6 +61,7 @@ Peak Rental Season: Late May through the winter holidays
 Most Common Listing: Individual bedrooms (not entire properties) dominate due to high demand and affordability in the Seattle market
 
 💡 **Use Case:**
+
 For Prospective Airbnb Hosts in Seattle
 This dataset and dashboard can provide valuable market insights for:
 
