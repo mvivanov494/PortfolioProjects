@@ -10,7 +10,6 @@ https://insideairbnb.com/get-the-data/
 This project demonstrates a complete data analytics pipeline—from raw data ingestion to dashboard visualization—using Airbnb property data from Seattle. It simulates what a data analyst or business analyst might do to prepare market insights for stakeholders interested in short-term rental investments or business strategy.
 
 🛠 **Tools & Technologies Used**
-MySQL – Data cleaning, transformation, aggregation (CTEs, CASE, string functions)
 
 Excel – Initial deduplication, formatting, and NULL handling
 
@@ -19,33 +18,12 @@ Tableau – Building interactive dashboards and visualizing key metrics
 Git/GitHub – For version control, documentation, and portfolio hosting
 
 📌 **Project Workflow**
-Imported raw dataset using LOAD DATA INFILE in MySQL (56,000+ records)
-
-Cleaned and structured the data:
-
-Split address fields using SUBSTRING_INDEX, LOCATE, and LEFT
 
 Replaced nulls and blanks using IFNULL, NULLIF, and Excel preprocessing
 
-Removed duplicates using ROW_NUMBER() inside CTEs
-
-Converted Y/N flags into “Yes”/“No”
-
-Created bins for pricing and value tiers using CASE logic
-
 Filtered out unused or irrelevant columns post-transformation
 
-Visualized key performance indicators (KPIs) in Tableau:
-
-Room types and occupancy trends
-
-Distribution of property types
-
-Most expensive ZIP codes
-
-Monthly rental profitability seasonality
-
-Security deposit and cleaning fee averages
+Visualized key performance indicators (KPIs) in Tableau
 
 📈 **Key Findings**
 Average Guests (Accommodates): 1.68
@@ -81,8 +59,6 @@ Based on seasonal trends, many hosts may choose to live in their property off-se
 This end-to-end project demonstrates real-world business analytics skills in:
 
 Data wrangling (ETL)
-
-SQL transformation logic
 
 Exploratory data analysis (EDA)
 
