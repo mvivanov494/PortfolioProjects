@@ -1,0 +1,91 @@
+📊 **Seattle Airbnb Data Cleaning & Visualization Project**
+
+🔗 **Tableau Dashboard:**
+View Interactive Dashboard
+
+📁 **Dataset Source:**
+Inside Airbnb Open Data
+
+🧹 **Project Summary**
+This project demonstrates a complete data analytics pipeline—from raw data ingestion to dashboard visualization—using Airbnb property data from Seattle. It simulates what a data analyst or business analyst might do to prepare market insights for stakeholders interested in short-term rental investments or business strategy.
+
+🛠 **Tools & Technologies Used**
+MySQL – Data cleaning, transformation, aggregation (CTEs, CASE, string functions)
+
+Excel – Initial deduplication, formatting, and NULL handling
+
+Tableau – Building interactive dashboards and visualizing key metrics
+
+Git/GitHub – For version control, documentation, and portfolio hosting
+
+📌 **Project Workflow**
+Imported raw dataset using LOAD DATA INFILE in MySQL (56,000+ records)
+
+Cleaned and structured the data:
+
+Split address fields using SUBSTRING_INDEX, LOCATE, and LEFT
+
+Replaced nulls and blanks using IFNULL, NULLIF, and Excel preprocessing
+
+Removed duplicates using ROW_NUMBER() inside CTEs
+
+Converted Y/N flags into “Yes”/“No”
+
+Created bins for pricing and value tiers using CASE logic
+
+Filtered out unused or irrelevant columns post-transformation
+
+Visualized key performance indicators (KPIs) in Tableau:
+
+Room types and occupancy trends
+
+Distribution of property types
+
+Most expensive ZIP codes
+
+Monthly rental profitability seasonality
+
+Security deposit and cleaning fee averages
+
+📈 **Key Findings**
+Average Guests (Accommodates): 1.68
+
+Average Security Deposit: $287.09
+
+Average Cleaning Fee: $62.37
+
+Most Expensive ZIP Codes: 98134, 98119, 98101
+
+Peak Rental Season: Late May through the winter holidays
+
+Most Common Listing: Individual bedrooms (not entire properties) dominate due to high demand and affordability in the Seattle market
+
+💡 **Use Case:**
+For Prospective Airbnb Hosts in Seattle
+This dataset and dashboard can provide valuable market insights for:
+
+Individuals or companies looking to start an Airbnb in the Seattle area
+
+Understanding where and when to list a property for maximum profitability
+
+Identifying the optimal room type to list (e.g., private rooms vs. full homes)
+
+Pricing strategy based on ZIP code, accommodations, and seasonal demand
+
+Budgeting for security deposits and cleaning fees
+
+Based on seasonal trends, many hosts may choose to live in their property off-season and rent it out during peak periods (May–December).
+
+📤 **Outcome**
+This end-to-end project demonstrates real-world business analytics skills in:
+
+Data wrangling (ETL)
+
+SQL transformation logic
+
+Exploratory data analysis (EDA)
+
+Data storytelling and dashboard design
+
+It prepares the dataset for use in stakeholder presentations, business intelligence tools, or integration into predictive models and Airbnb profitability calculators.
+
