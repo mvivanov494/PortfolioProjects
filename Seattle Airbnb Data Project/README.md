@@ -1,10 +1,10 @@
 📊 **Seattle Airbnb Data Cleaning & Visualization Project**
 
 🔗 **Tableau Dashboard:**
-View Interactive Dashboard
+https://public.tableau.com/app/profile/mikhail.ivanov8682/viz/SeattleAirbnbDataDashboard/Dashboard1
 
 📁 **Dataset Source:**
-Inside Airbnb Open Data
+https://insideairbnb.com/get-the-data/
 
 🧹 **Project Summary**
 This project demonstrates a complete data analytics pipeline—from raw data ingestion to dashboard visualization—using Airbnb property data from Seattle. It simulates what a data analyst or business analyst might do to prepare market insights for stakeholders interested in short-term rental investments or business strategy.
