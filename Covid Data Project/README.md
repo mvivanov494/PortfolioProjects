@@ -6,8 +6,6 @@
 #### Tableau Dashboard Link: 
 <https://shorturl.at/YBznK> 
 
-![Covid Data Dashboard](/assets/image/Covid_Data_Tableau_Dashboard.png)
-
 This project demonstrates full-cycle data exploration using SQL to analyze and uncover insights from global COVID-19 datasets. It highlights core analyst skills including data cleaning, joins, CTEs, window functions, aggregate analysis, and performance optimization using temporary tables and views. 🦠
 
 ### 🔧 Tools Used: 
