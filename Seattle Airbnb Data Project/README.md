@@ -1,68 +1,68 @@
-📊 **Seattle Airbnb Data Cleaning & Visualization Project**
+## Personal Project, Seattle Airbnb Data Cleaning & Visualization Project
 
-🔗 **Tableau Dashboard:**
-https://public.tableau.com/app/profile/mikhail.ivanov8682/viz/SeattleAirbnbDataDashboard/Dashboard1
+### 🔗 Tableau Dashboard:
+[Seattle Airbnb Tableau Dashboard](https://shorturl.at/SS0bl)
 
-📁 **Dataset Source:**
-https://insideairbnb.com/get-the-data/
+![Seattle Airbnb Tableau Dashboard](/assets/image/Seattle_Airbnb_Data_Dashboard.png)
 
-🧹 **Project Summary**
-This project demonstrates a complete data analytics pipeline—from raw data ingestion to dashboard visualization—using Airbnb property data from Seattle. It simulates what a data analyst or business analyst might do to prepare market insights for stakeholders interested in short-term rental investments or business strategy.
+### 📁 Dataset Source: 
+[Inside Airbnb - Seattle Listings](https://insideairbnb.com/get-the-data/)
 
-🛠 **Tools & Technologies Used**
+---
 
-Excel – Initial deduplication, formatting, and NULL handling
+### 🧹 Project Summary:
 
-Tableau – Building interactive dashboards and visualizing key metrics
+This project demonstrates a full data analytics pipeline—from raw data ingestion to dashboard visualization—using Airbnb property data from Seattle. It simulates the tasks a data or business analyst might perform to deliver actionable insights for stakeholders exploring short-term rental investments or business strategies.
 
-Git/GitHub – For version control, documentation, and portfolio hosting
+---
 
-📌 **Project Workflow**
+### 🛠 Tools & Technologies Used:
 
-Replaced nulls and blanks using IFNULL, NULLIF, and Excel preprocessing
+- **Excel** – Deduplication, formatting, NULL handling  
+- **Tableau** – Building interactive dashboards and visualizing key metrics  
+- **Git/GitHub** – Version control, documentation, and project hosting  
 
-Filtered out unused or irrelevant columns post-transformation
+---
 
-Visualized key performance indicators (KPIs) in Tableau
+### 📌 Project Workflow:
 
-📈 **Key Findings**
-Average Guests (Accommodates): 1.68
+- Cleaned raw data using `IFNULL`, `NULLIF`, and Excel preprocessing  
+- Removed irrelevant and unused columns post-transformation  
+- Built a KPI-focused dashboard with filters and interactive visuals in Tableau  
 
-Average Security Deposit: $287.09
+---
 
-Average Cleaning Fee: $62.37
+### 📈 Key Findings:
 
-Most Expensive ZIP Codes: 98134, 98119, 98101
+- **Average Guests (Accommodates):** 1.68  
+- **Average Security Deposit:** $287.09  
+- **Average Cleaning Fee:** $62.37  
+- **Most Expensive ZIP Codes:** 98134, 98119, 98101  
+- **Peak Rental Season:** Late May through winter holidays  
+- **Most Common Listings:** Private rooms dominate due to affordability and demand
 
-Peak Rental Season: Late May through the winter holidays
+---
 
-Most Common Listing: Individual bedrooms (not entire properties) dominate due to high demand and affordability in the Seattle market
+### 💡 Use Case: 
 
-💡 **Use Case:**
+This project can inform decisions on:
 
-For Prospective Airbnb Hosts in Seattle
-This dataset and dashboard can provide valuable market insights for:
+- Where and when to list for maximum profitability  
+- Optimal property type to rent (private rooms vs. full homes)  
+- Pricing strategies based on ZIP code, accommodation size, and seasonality  
+- Budgeting for cleaning fees and security deposits  
+- Understanding seasonal rental behavior (e.g., renting out during peak season, living in during off-season)
 
-Individuals or companies looking to start an Airbnb in the Seattle area
+---
 
-Understanding where and when to list a property for maximum profitability
+### 📤 Outcome:
 
-Identifying the optimal room type to list (e.g., private rooms vs. full homes)
+This end-to-end project demonstrates real-world analytics skills in:
 
-Pricing strategy based on ZIP code, accommodations, and seasonal demand
+- **ETL (Extract, Transform, Load)**  
+- **Exploratory Data Analysis (EDA)**  
+- **Data Storytelling & Dashboard Design**  
 
-Budgeting for security deposits and cleaning fees
+It prepares Airbnb market data for use in stakeholder presentations, BI dashboards, predictive modeling, or profitability tools.
 
-Based on seasonal trends, many hosts may choose to live in their property off-season and rent it out during peak periods (May–December).
-
-📤 **Outcome**
-This end-to-end project demonstrates real-world business analytics skills in:
-
-Data wrangling (ETL)
-
-Exploratory data analysis (EDA)
-
-Data storytelling and dashboard design
-
-It prepares the dataset for use in stakeholder presentations, business intelligence tools, or integration into predictive models and Airbnb profitability calculators.
-
+---
